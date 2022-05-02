@@ -14,18 +14,32 @@ namespace HighOrLow.Engine
         public CardSuit Suit { get; } //Gör det möjligt att hämta färgen(Suit) på ett kort ex. kort.Suit
         public Card(CardRank cardrank, CardSuit cardsuit)
         {
-
             this.Rank = cardrank;
             this.Suit = cardsuit;
         }
 
-        public bool IsHigher(Card otherCard)
+        public bool IsHigher(Card otherCard)  //Metod för att kolla om ett kort är högre än det kortet man jämför med.
         {
-            if (this.Rank > otherCard.Rank)
+            if (this.Rank == CardRank.Ace && otherCard.Rank != CardRank.Ace)
             {
                 return true;
             }
-            else if(this.Rank == CardRank.Ace)
+            else if (this.Rank > otherCard.Rank)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool IsLower(Card otherCard) //Metod för att kolla om ett kort är lägre än det kortet man jämför med.
+        {
+            if (this.Rank == CardRank.Ace && otherCard.Rank != CardRank.Ace)
+            {
+                return true;
+            }
+            else if(this.Rank < otherCard.Rank)
             {
                 return true;
             }
@@ -35,23 +49,7 @@ namespace HighOrLow.Engine
             }
         }
 
-        public bool IsLower(Card otherCard)
-        {
-            if (this.Rank < otherCard.Rank)
-            {
-                return true;
-            }
-            else if(this.Rank == CardRank.Ace)
-            {
-                return true;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        public bool IsEqual(Card otherCard)
+        public bool IsEqual(Card otherCard) //Metod för att kolla om ett kort är lika med det kortet man jämför med.
         {
             if (this.Rank == otherCard.Rank)
             {
@@ -155,6 +153,16 @@ namespace HighOrLow.Engine
             }
 
             return $"{valueString} : {suitString}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as Card;
+            if(other == null)
+            {
+                return false;
+            }
+            return this.Rank == other.Rank && this.Suit == other.Suit;
         }
 
     }

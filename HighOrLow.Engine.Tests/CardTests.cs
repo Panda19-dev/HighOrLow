@@ -111,5 +111,11 @@ namespace HighOrLow.Engine.Tests
             Assert.AreEqual("7 : ♤", sevenOfSpades.ToString());
             Assert.AreEqual("4 : ♢", fourOfDiamonds.ToString());
         }
+
+        [TestMethod]
+        public void CanCreateInstanceOfDeck()
+        {
+            
+        }
     }
 }

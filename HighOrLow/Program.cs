@@ -10,6 +10,7 @@ namespace HighOrLow
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
