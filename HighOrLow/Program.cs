@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HighOrLow.Engine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,8 @@ namespace HighOrLow
     {
         static void Main(string[] args)
         {
-            
+            Game game = new Game();
+            game.WelcomeMenu();
         }
     }
 }

@@ -31,7 +31,6 @@ namespace HighOrLow.Engine.Tests
         {
             Deck deck = new Deck();
             deck.Shuffle();
-            
         }
         [TestMethod]
         public void CanPickCard()

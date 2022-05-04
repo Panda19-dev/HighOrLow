@@ -28,6 +28,10 @@ namespace HighOrLow.Engine
             {
                 return true;
             }
+            else if (otherCard.Rank == CardRank.Ace && this.Rank != CardRank.Ace)
+            {
+                return true;
+            }
             else
             {
                 return false;
@@ -36,6 +40,10 @@ namespace HighOrLow.Engine
         public bool IsLower(Card otherCard) //Metod för att kolla om ett kort är lägre än det kortet man jämför med.
         {
             if (this.Rank == CardRank.Ace && otherCard.Rank != CardRank.Ace)
+            {
+                return true;
+            }
+            else if (otherCard.Rank == CardRank.Ace && this.Rank != CardRank.Ace)
             {
                 return true;
             }
@@ -85,7 +93,7 @@ namespace HighOrLow.Engine
             }
         }
 
-        public override string ToString()
+        public override string ToString() //Skriver över metoden .ToString så att den kan skriva ut ett kort eftersom att .ToString metoden anropas om man till exempel anänvder Console.ReadLine(card). så att den skriver ut som ex. Ace : ♧
         {
             char suitString = ' ';
             string valueString = " ";
@@ -93,16 +101,16 @@ namespace HighOrLow.Engine
             switch(this.Suit)
             {
                 case CardSuit.Hearts:
-                    suitString = '\u2661';
+                    suitString = '\u2665';
                     break;
                 case CardSuit.Spades:
-                    suitString = '\u2664';
+                    suitString = '\u2660';
                     break;
                 case CardSuit.Diamonds:
-                    suitString = '\u2662';
+                    suitString = '\u2666';
                     break;
                 case CardSuit.Clubs:
-                    suitString = '\u2667';
+                    suitString = '\u2663';
                     break;
             }
 
@@ -155,7 +163,7 @@ namespace HighOrLow.Engine
             return $"{valueString} : {suitString}";
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object obj) //Skrev över metoden då metoden används när vi kollar i ett test om kortleken är tom så ska den retunera null.
         {
             var other = obj as Card;
             if(other == null)

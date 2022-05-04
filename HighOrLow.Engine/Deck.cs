@@ -11,9 +11,9 @@ namespace HighOrLow.Engine
         List<Card> cards = new List<Card>();
         public Deck()
         {
-            foreach (string suit in Enum.GetNames(typeof(CardSuit)))
+            foreach (string suit in Enum.GetNames(typeof(CardSuit))) //Loop som går igenom alla delar i CardSuit enumen. 
             {
-                foreach (string rank in Enum.GetNames(typeof(CardRank)))
+                foreach (string rank in Enum.GetNames(typeof(CardRank))) //Loop som går igenom alla delar i CardRank enumen så att alla kort skapas korrekt. 
                 {
                     Card card = new Card((CardRank)Enum.Parse(typeof(CardRank), rank), 
                         (CardSuit)Enum.Parse(typeof(CardSuit), suit));
@@ -22,19 +22,19 @@ namespace HighOrLow.Engine
             }
         }
 
-        public void Shuffle(int seed)
+        public void Shuffle(int seed) //En metod som tar fram ett random värde utifårn en seed, alltså ett bestämt värde för att kunna testa så allt funkar.
         {
             var rnd = new Random(seed);
             Shuffle(rnd);
         }
 
-        private void Shuffle(Random rnd)
+        private void Shuffle(Random rnd) 
         {
             var randomizedCards = cards.OrderBy(x => rnd.Next()).ToList();
             cards = randomizedCards;
         }
 
-        public void Shuffle()
+        public void Shuffle() //Om man inte tar in ett värde i metoden så tar den ett "random" värde (utefter klockan eller tiden då).
         {
             var rnd = new Random();
             Shuffle(rnd);
@@ -54,6 +54,14 @@ namespace HighOrLow.Engine
             Card card = cards[0];
             cards.RemoveAt(0);
             return card;
+        }
+
+        public void PrintDeck()
+        {
+            foreach (Card card in cards)
+            {
+                Console.WriteLine(card);
+            }
         }
     }
 }

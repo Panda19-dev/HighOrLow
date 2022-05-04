@@ -46,6 +46,9 @@
     <Compile Include="CardSuit.cs" />
     <Compile Include="CompareValues.cs" />
     <Compile Include="Deck.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="LeaderBoard.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
