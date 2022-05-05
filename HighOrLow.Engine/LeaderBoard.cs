@@ -24,13 +24,27 @@ namespace HighOrLow.Engine
 
         public override string ToString()
         {
-            var sortedList = leaderboard.OrderByDescending(c => c.Score).Take(numberOfPositions).ToList(); // Makes me go through a specific length of a sorted list as a leaderboard, which means that ex. the 5 best scores appear.
-            string temp = "";
-            foreach (Position position in sortedList)
+            Console.Clear();
+            if (leaderboard.Count == 0)
             {
-                temp += position.UserName + " : " + position.Score + Environment.NewLine;
+                string temp = "";
+                temp += "-----------------------------------------" + Environment.NewLine;
+                temp += "      The LeaderBoard Is Empty!" + Environment.NewLine;
+                temp += "-----------------------------------------" + Environment.NewLine;
+                return temp;
             }
+            else
+            {
+                var sortedList = leaderboard.OrderByDescending(c => c.Score).Take(numberOfPositions).ToList(); // Makes me go through a specific length of a sorted list as a leaderboard, which means that ex. the 5 best scores appear.
+                string temp = "";
+                temp += "-----------------------------------------" + Environment.NewLine;
+                foreach (Position position in sortedList)
+                {
+                    temp += position.UserName + " : " + position.Score + Environment.NewLine;
+                }
+                temp += "-----------------------------------------" + Environment.NewLine;
             return temp;   
+            }
         }
     }
 }

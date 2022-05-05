@@ -16,11 +16,11 @@ namespace HighOrLow.Engine
             Console.WriteLine("   -----------------------------------");
             Console.WriteLine("   | Welcome to the HighOrLow Game!  |");
             Console.WriteLine("   -----------------------------------");
-            Console.Clear();
             Console.WriteLine("   -----------------------------------");
             Console.WriteLine("   |    Thank you for joining us!    |");
-            Console.WriteLine("   |    Have a great time playing!   |");
+            Console.WriteLine("   |    Have a great time playing!   |"); 
             Console.WriteLine("   -----------------------------------");
+            Console.WriteLine("         Press enter to continue      ");
             Console.ReadLine();
             while(true)
                 MainMenu();
@@ -70,7 +70,7 @@ namespace HighOrLow.Engine
             for (int i = 0; i < 4; i++)
             {
                 Card oldCard = cards.GetTopCard();
-
+                Console.Clear();
                 Console.WriteLine($"Round {i+1}!");
                 for (int j = 0; j < 13; j++)
                 {
@@ -115,14 +115,16 @@ namespace HighOrLow.Engine
             Console.ReadLine();
         }
 
-        public void Loading() // INTE KLAR
+        public void Loading() // Metod för att skapa en loading screen
         {
             Console.Clear();
             Console.SetCursorPosition(15, 15);
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
-                Console.Write("*");
-                Thread.Sleep(1000);
+                string l = "*";
+                Console.Write(l);
+                l += " *";
+                Thread.Sleep(500); 
             }
         }
 

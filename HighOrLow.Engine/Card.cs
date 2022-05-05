@@ -69,7 +69,7 @@ namespace HighOrLow.Engine
             }
         }
 
-        public CompareValues IsHigherLowerOrEqualThan(Card otherCard)
+        public CompareValues IsHigherLowerOrEqualThan(Card otherCard) //Metod som koller om ett kort är större, mindre eller lika med ett annat kort. (Används inte i spelet men skapades ändå för framtida projekt.)
         {
             if(this.Rank == CardRank.Ace && otherCard.Rank != CardRank.Ace)
             {

@@ -12,7 +12,9 @@ namespace HighOrLow
         static void Main(string[] args)
         {
             Game game = new Game();
-            game.WelcomeMenu();
+            game.Loading();
+            //game.WelcomeMenu();
+
         }
     }
 }
