@@ -129,10 +129,6 @@ namespace HighOrLow.Engine
             Console.WriteLine("Game Over!");
             Console.Write("Please enter your username:");
             string name = Console.ReadLine();
-            if(name > "aaaaaa")
-            {
-
-            }
             Console.WriteLine($"Your score is {score} points");
             leaderboard.AddPosition(name, score);
             Console.ReadLine();
