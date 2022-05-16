@@ -9,16 +9,16 @@ namespace HighOrLow.Engine
     public class Card
     {
         //Auto Property
-        public CardRank Rank { get; } //Gör det möjligt att hämta värdet(Rank) på ett kort ex. kort.Rank
+        public CardRank Rank { get; } //Makes it possible to retrieve the value (Rank) on a card. card.Rank
 
-        public CardSuit Suit { get; } //Gör det möjligt att hämta färgen(Suit) på ett kort ex. kort.Suit
-        public Card(CardRank cardrank, CardSuit cardsuit)
+        public CardSuit Suit { get; } //Makes it possible to retrieve the color (Suit) on a card. card.Suit
+        public Card(CardRank cardrank, CardSuit cardsuit) //Constructor
         {
             this.Rank = cardrank;
             this.Suit = cardsuit;
         }
 
-        public bool IsHigher(Card otherCard)  //Metod för att kolla om ett kort är högre än det kortet man jämför med.
+        public bool IsHigher(Card otherCard)  //Method for checking if a card is higher than the card you are comparing with.
         {
             if (this.Rank == CardRank.Ace && otherCard.Rank != CardRank.Ace)
             {
@@ -37,7 +37,7 @@ namespace HighOrLow.Engine
                 return false;
             }
         }
-        public bool IsLower(Card otherCard) //Metod för att kolla om ett kort är lägre än det kortet man jämför med.
+        public bool IsLower(Card otherCard) //Method for checking if a card is lower than the card you are comparing with.
         {
             if (this.Rank == CardRank.Ace && otherCard.Rank != CardRank.Ace)
             {
@@ -57,7 +57,7 @@ namespace HighOrLow.Engine
             }
         }
 
-        public bool IsEqual(Card otherCard) //Metod för att kolla om ett kort är lika med det kortet man jämför med.
+        public bool IsEqual(Card otherCard) //Method for checking if a card is equal to the card you are comparing with.
         {
             if (this.Rank == otherCard.Rank)
             {
@@ -69,7 +69,7 @@ namespace HighOrLow.Engine
             }
         }
 
-        public CompareValues IsHigherLowerOrEqualThan(Card otherCard) //Metod som koller om ett kort är större, mindre eller lika med ett annat kort. (Används inte i spelet men skapades ändå för framtida projekt.)
+        public CompareValues IsHigherLowerOrEqualThan(Card otherCard) //Method that checks if a card is larger, smaller or equal to another card. (Not used in the game but still created for future projects.)
         {
             if(this.Rank == CardRank.Ace && otherCard.Rank != CardRank.Ace)
             {
@@ -93,7 +93,7 @@ namespace HighOrLow.Engine
             }
         }
 
-        public override string ToString() //Skriver över metoden .ToString så att den kan skriva ut ett kort eftersom att .ToString metoden anropas om man till exempel anänvder Console.ReadLine(card). så att den skriver ut som ex. Ace : ♧
+        public override string ToString() //Overwrites the .ToString method so that it can print a card because the .ToString method is called if, for example, you use Console.WriteLine(card). so that it prints as ex. Ace : ♧ instead of Ace : Clubs
         {
             char suitString = ' ';
             string valueString = " ";
@@ -156,14 +156,14 @@ namespace HighOrLow.Engine
                     valueString = "King";
                     break;
                 default:
-                    valueString = ((int)Rank).ToString(); //Gör så att alla fall som inte nämns ovan så tar vi "ranken" från enumen och gör om den till en int och därefter använder metoden .ToString på hela.
+                    valueString = ((int)Rank).ToString(); //Make sure that all cases not mentioned above we take the "rank" from the enumen and turn it into an int and then use the method .ToString on the whole.
                     break;
             }
 
             return $"{valueString} : {suitString}";
         }
 
-        public override bool Equals(object obj) //Skrev över metoden då metoden används när vi kollar i ett test om kortleken är tom så ska den retunera null.
+        public override bool Equals(object obj) //the method is used when we check in a test if the card deck is empty, it should return zero and not null.
         {
             var other = obj as Card;
             if(other == null)

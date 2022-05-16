@@ -9,7 +9,7 @@ namespace HighOrLow.Engine
 {
     public class LeaderBoard
     {
-        int numberOfPositions;
+        int numberOfPositions; // A variable that determine how many positions that will be shown on the leaderboard.
 
         List<Position> leaderboard = new List<Position>();
         public LeaderBoard(int numberOfPositions)
@@ -17,15 +17,15 @@ namespace HighOrLow.Engine
             this.numberOfPositions = numberOfPositions;
         }
 
-        public void AddPosition(string userName, int score)
+        public void AddPosition(string userName, int score) //Adds a position or a player to the leaderboard.
         {
             leaderboard.Add(new Position(userName, score));
         }
 
-        public override string ToString()
+        public override string ToString() //Method that will be called if you try to ex. Console.WriteLine(leaderboard)
         {
             Console.Clear();
-            if (leaderboard.Count == 0)
+            if (leaderboard.Count == 0) //When the leaderboard is empty
             {
                 string temp = "";
                 temp += "-----------------------------------------" + Environment.NewLine;
@@ -33,10 +33,11 @@ namespace HighOrLow.Engine
                 temp += "-----------------------------------------" + Environment.NewLine;
                 return temp;
             }
-            else
+            else //Prints a sorted leaderboard.
             {
                 var sortedList = leaderboard.OrderByDescending(c => c.Score).Take(numberOfPositions).ToList(); // Makes me go through a specific length of a sorted list as a leaderboard, which means that ex. the 5 best scores appear.
                 string temp = "";
+                temp += "         LEADERBOARD" + Environment.NewLine;
                 temp += "-----------------------------------------" + Environment.NewLine;
                 foreach (Position position in sortedList)
                 {

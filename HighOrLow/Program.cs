@@ -11,9 +11,8 @@ namespace HighOrLow
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            game.Loading();
-            //game.WelcomeMenu();
+            Game game = new Game(); //Creates a new instance of the Game class
+            game.WelcomeMenu(); //Initializing the game by calling the method WelcomeMenu()
 
         }
     }
